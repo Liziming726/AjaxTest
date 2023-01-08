@@ -1,0 +1,36 @@
+<!--
+ * @Author: Liziming726 873884635@qq.com
+ * @Date: 2022-11-28 11:55:15
+ * @LastEditors: Liziming726 873884635@qq.com
+ * @LastEditTime: 2022-11-28 12:25:27
+ * @FilePath: \AjaxTest\main\day1\code\01.使用GET发起不带参数的请求.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+  <button id="btnGET">发起不带参数的GET请求</button>
+  <!-- <li></li> -->
+  <script>
+    $(function () {
+      $('#btnGET').on('click', function () {
+        $.get('http://www.liulongbin.top:3006/api/getbooks', function (res) {
+          console.log(res)
+          //使用jq给页面添加内容
+          // $('li').append(res.data[0].id)
+        })
+      })
+    })
+  </script>
+</body>
+
+</html>

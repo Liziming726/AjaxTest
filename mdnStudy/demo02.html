@@ -1,0 +1,52 @@
+<!--
+ * @Author: Liziming726 873884635@qq.com
+ * @Date: 2022-10-09 16:07:54
+ * @LastEditors: Liziming726 873884635@qq.com
+ * @LastEditTime: 2022-10-09 17:40:45
+ * @FilePath: \AjaxTest\mdnStudy\demo02.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="ajax" type="button">Make a request</button>
+    <script>
+        (function () {
+            var httpRequest;
+            document.getElementById('ajax').addEventListener('click', makeRequest);
+
+            function makeRequest() {
+                httpRequest = new XMLHttpRequest();
+
+                if (!httpRequest) {
+                    alert('Giving up :( Cannot create an XMLHTTP instance')
+                    return false;
+                }
+                httpRequest.onreadystatechange = alertContents;
+                httpRequest.open('GET', './test.html');
+                httpRequest.send();
+            }
+
+            function alertContents() {
+                if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                    if (httpRequest.status === 200) {
+                        //若请求成功，则将返回的内容显示在页面上
+                        alert(httpRequest.responseText);
+                    } else {
+                        alert('There was a problem with the request.');
+                    }
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>
